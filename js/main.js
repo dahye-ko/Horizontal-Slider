@@ -48,29 +48,29 @@ const arrowRight = document.querySelector(".arrow--right");
 // 왼쪽 화살표 선택자
 const arrowLeft = document.querySelector(".arrow--left");
 // 1. 왼쪽 화살표에 클릭 이벤트가 발생할 시 작동할 함수
-const slideLeft = () => {
+const slideToLeft = () => {
   // 모든 슬라이드 이미지 display를 none으로 리셋
   reset();
-  // current(현재 보여지는 슬라이드 이미지)의
-  // 이전 슬라이드 이미지가 보이도록 스타일 변경
-  sliderImages[current - 1].style.display = "block";
-  dots[current - 1].style.background = "#1107ff";
-  dots[current - 1].style.width = "30px";
   // current값을 1만큼 뺌
   current--;
+  // current(현재 보여지는 슬라이드 이미지)의
+  // 이전 슬라이드 이미지가 보이도록 스타일 변경
+  sliderImages[current].style.display = "block";
+  dots[current].style.background = "#1107ff";
+  dots[current].style.width = "30px";
 };
 
 // 2. 오른쪽 화살표에 클릭 이벤트가 발생할 시 작동할 함수
-const slideRight = () => {
+const slideToRight = () => {
   // 모든 슬라이드 이미지 display를 none으로 리셋
   reset();
-  // current(현재 보여지는 슬라이드 이미지)의
-  // 다음 슬라이드 이미지가 보이도록 스타일 변경
-  sliderImages[current + 1].style.display = "block";
-  dots[current + 1].style.background = "#1107ff";
-  dots[current + 1].style.width = "30px";
   // current값을 1만큼 더함
   current++;
+  // current(현재 보여지는 슬라이드 이미지)의
+  // 다음 슬라이드 이미지가 보이도록 스타일 변경
+  sliderImages[current].style.display = "block";
+  dots[current].style.background = "#1107ff";
+  dots[current].style.width = "30px";
 };
 
 // 왼쪽 화살표를 클릭할 시 작동하는 익명의 함수
@@ -81,7 +81,7 @@ arrowLeft.addEventListener("click", function () {
     // current값을 슬라이드 이미지 배열의 길이로 변경
     current = sliderImages.length;
   }
-  slideLeft();
+  slideToLeft();
 });
 
 // 오른쪽 화살표를 클릭할 시 작동하는 익명의 함수
@@ -92,7 +92,7 @@ arrowRight.addEventListener("click", function () {
     // current값을 -1로 설정
     current = -1;
   }
-  slideRight();
+  slideToRight();
 });
 
 // 동그라미들 선택자
